@@ -2,8 +2,16 @@
 import random
 import string
 
-chars = string.ascii_letters + string.digits + string.punctuation
+passord = ''.join(random.choice(string.ascii_letters) for _ in range(4))
 
-password = ''.join(random.choice(chars) for _ in range(6))
+print("Generate Passord", passord)
 
-print(f"Generated password: {password}")
+while True:
+        guess1 = input("Gjett passordet med 4 bokstaver: ")
+
+        if guess1 == passord:
+            print("Du gjettet passordet gratulerer 🥂🥂")
+            break
+        else:
+            riktig_pososjon = sum(a == b for a, b in zip(guess1, passord))
+            print(f"❌Feil prøv igjen {riktig_pososjon} bokstaver i riktig possisjon")
